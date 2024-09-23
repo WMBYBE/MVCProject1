@@ -5,11 +5,12 @@ namespace Project1.Controllers
 {
     public class GreetingController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
         {
             return View();
         }
-
+        [HttpPost]
         public IActionResult Index(Greetings model)
         {
             if (ModelState.IsValid)
