@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Project1.Models;
 
 namespace Project1.Controllers
 {
@@ -7,6 +8,16 @@ namespace Project1.Controllers
         public IActionResult Index()
         {
             return View();
+        }
+
+        public IActionResult Index(Greetings model)
+        {
+            if (ModelState.IsValid)
+            {
+                ViewBag.Greeting = model.GenerateGreeting();
+            }
+
+            return View(model);
         }
     }
 }
